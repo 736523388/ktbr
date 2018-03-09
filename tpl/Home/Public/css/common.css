@@ -1,0 +1,39 @@
+﻿/*公共样式*/
+*{box-sizing:border-box}
+ul,li,ol{list-style: none;}
+a{text-decoration:none;color: #666666;}
+body,ul,li,dt,dd,h1,h2,h3,h4,h5,h6,input{margin: 0;padding: 0;}
+body{font-family: '微软雅黑',sans-serif}
+/*结构样式*/
+#header,#nav,.main,#footer{width:1300px;margin: 0 auto;}
+header,nav,article,footer{width: 100%}
+/*header*/
+header{background: url("../images/bg.png");}
+.logo img{margin-top: 15px;}
+#header{height:90px;}
+#header span{color: #999;}
+.notice{float: right;margin-top: 19px;}
+/*nav*/
+.fixed{position: fixed;top: 0}
+nav{height: 50px;background: #404040;position: relative}gpc-logo h1 {
+    margin: 0;
+}: inline-block;height: 50px;line-height: 50px;padding: 0 20px;}
+#nav span{color: #ffffff;float: right;font-size: 18px;margin: 13px 20px; }
+#nav .menu{width: 1040px;padding: 5px 0;border-radius: 4px;background: #f8f8f8;position: absolute;top: 100%;z-index: 100;cursor:pointer;border: 1px solid rgba(0, 0, 0, .15);box-shadow: 0 6px 12px rgba(0, 0, 0, .175);-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);display: none}
+#nav .menu:after{width: 0;height: 0;position: absolute;border: 7px solid transparent;border-bottom-color: #f8f8f8;content: "";top: -15px;left: 35px;z-index: 100}
+#nav .menu ul{overflow: hidden;border-bottom: 1px dotted #333;margin: 0 30px}
+#nav .menu ul:last-child{border: 0;}
+#nav .menu li{float: left;line-height: 55px;margin: 0 10px 0 10px;}
+#nav .menu a{color: #333333;font-size: 13px;line-height: 40px}
+/*footer*/
+#footer{overflow: hidden;padding: 30px 0 30px 0;}
+.footer_top{overflow: hidden;padding-bottom: 50px;border-bottom: 1px dashed #878787;}
+#footer .footer_top div{overflow: hidden;float: left;}
+#footer .footer_top dt{font-weight: bold;color: #373737;}
+#footer .footer_top dd{padding: 10px 120px 0 0 ;color: #666666;}
+#footer .footer_top .partner img{margin:10px 0 0 150px;}
+#footer .footer_box{margin-top:30px;}
+#footer .footer_box>b{color: #373737;}
+.other{text-align: right;margin-top: 20px;color: #666666;}
+.other b{color: #373737;}
+

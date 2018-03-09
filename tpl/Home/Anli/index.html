@@ -1,0 +1,283 @@
+<extend name="Public:base" />
+<block name="keywords"></block>
+<block name="description"></block>
+<block name="css">
+<link href="__HOME_CSS__/page.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="__HOME_JS__/jquery.layermodel.js"></script>
+<script type="text/javascript">
+$(function(){
+ $("#demoBtn1").click(function(){
+      $('#demo1').layerModel();
+    });
+$("#demoBtn2").click(function(){
+      $('#demo2').layerModel();
+    }); 
+    
+  });
+  
+</script>
+    <style type="text/css">
+        /*2016-10-10*/
+        .gpc-logo h1{
+            margin:0
+        }
+        .link_more {
+            width: 16px;
+            height: 8px;
+            position: absolute;
+            right: 251px;
+            top: 21px;
+            cursor: pointer;
+            background: url(__HOME_IMAGES__/link.png) no-repeat;
+        }
+        #ck_hides{
+            height: 50px;
+            overflow: hidden;
+        }
+        .pro-video-wrap-title,.pro-video-wrap-title-b{
+            background-color: white;
+               
+        }
+        .pro-video-wrap{
+             border: 0px solid #d2d2d2;
+        }
+        .pro-video-wrap_img.video_con {
+            height: 163px;
+        }
+        #span_text{
+            width: 250px;
+            display:block;
+            white-space:nowrap; 
+            overflow:hidden; 
+            text-overflow:ellipsis;
+        }
+        .pro-video-wrap-title-1:nth-child(1){
+            margin-left: 10px;
+        }
+        .pro-video-wrap-title-1{
+      max-width: 60px;
+            margin-left: 5px;
+            font-size: 12px;
+            padding: 2px 5px 2px 5px;
+            display: inline-block;
+            background-color: #f5f5f5;
+            border-radius: 15px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+        }
+                .navbar{
+            min-height: 0 ;
+      /*border-bottom: 1px solid #eaeaea;*/
+
+        }
+        .nav-container{
+            height: auto ;
+        }
+    </style>
+</block>
+<block name="main">
+<section class="pro-menu"  style="background:#fbfbfb;">
+    <div class="three-video-inf">
+       <div class="container-fluid">
+           <div class='row'>
+               <div class="col-md-12 col-sm-12">
+               <input type="hidden" name="oid" value="{$oid}">
+               <input type="hidden" name="mid" value="{$mid}">
+                    <ul class="gpc1-nav-menu-ul">
+                        <li><img src="__HOME_PICTURE__/menu1.png" /></li>
+                        <li class="second"><a  href="/anli.html">服务分类</a></li>
+                        <li><a href="javascript:;" onclick="setCategory()" <empty name="oid">style="color:#F00;"</empty>>全部</a></li>
+                        <volist name="category" id="vo">
+                        <li><a href="javascript:;" onclick="setCategory({$vo['category_id']})" <if condition="$oid eq $vo['category_id']">style="color:#F00;"</if>>{$vo.title}</a></li>
+                        </volist>
+                    </ul>
+
+                    <ul class="gpc1-nav-menu-ul">
+                        <li><img src="__HOME_PICTURE__/menu5.png" /></li>
+                        <li class="second"><a  href="javascript:void(0)">服务时间</a></li>
+                        <li><a href="javascript:;" onclick="setMid()" <empty name="mid">style="color:#F00;"</empty>>不限</a></li>
+                        <li><a href="javascript:;" onclick="setMid(1)" <if condition="$mid eq 1">style="color:#F00;"</if>>2018</a></li>
+                        <li><a href="javascript:;" onclick="setMid(2)" <if condition="$mid eq 2">style="color:#F00;"</if>>2017</a></li>
+                        <li><a href="javascript:;" onclick="setMid(3)" <if condition="$mid eq 3">style="color:#F00;"</if>>2016</a></li>
+                        <li><a href="javascript:;" onclick="setMid(4)" <if condition="$mid eq 4">style="color:#F00;"</if>>2015</a></li>
+                        <li><a href="javascript:;" onclick="setMid(5)" <if condition="$mid eq 5">style="color:#F00;"</if>>2014</a></li>
+                        <li><a href="javascript:;" onclick="setMid(6)" <if condition="$mid eq 6">style="color:#F00;"</if>>2013</a></li>
+                        <li><a href="javascript:;" onclick="setMid(7)" <if condition="$mid eq 7">style="color:#F00;"</if>>2012</a></li>
+                    </ul> 
+<!--                     <ul class="gpc1-nav-menu-ul" style="display: none;">
+                        <li><img src="__HOME_PICTURE__/menu4.png" /></li>
+                        <li class="second"><a  href="javascript:void(0)">服务价格</a></li>
+                        <li><a href="/anli.html?aid=5" style="color:#F00;">不限</a></li>
+                        <li><a href="/anli.html?oid=&fid=&fiveid=1" style="">1万以内</a></li><li><a href="/anli.html?oid=&fid=&fiveid=2" style="">1-3万</a></li><li><a href="/anli.html?oid=&fid=&fiveid=3" style="">3-5万</a></li><li><a href="/anli.html?oid=&fid=&fiveid=4" style="">5-10万</a></li><li><a href="/anli.html?oid=&fid=&fiveid=5" style="">10万以上</a></li>
+                    </ul> -->
+
+               </div>
+           </div>
+     </div>
+    </div>
+</section>
+
+<section class="name1_video margin-top-bottom" style="background:#fbfbfb;">
+    <div class="three-video-inf">
+        <div class="container-fluid no-padding">
+            <div class="col-md-12 col-sm-12 no-padding g1">
+                <volist name="list" id="vo">
+                <a href="anli_details/{$vo.case_id}" target="_blank" title="">
+                  <div class="col-md-3 col-sm-6 col-xs-12 no-padding-inner">
+                      <div class="pro-video-wrap-box">
+                          <div class="pro-video-wrap">
+                                 <div class="pro-video-wrap_img video_con" data-id="140">
+                                    <img src="{$vo.thumb}" alt="{$vo.title}" height="100%">
+                                 </div>
+                                  
+                                  
+                                  <div class="pro-video-wrap-title">
+                                      <span class="pro-video-wrap-title-lf" id="span_text">{$vo.title}</span>
+                                    <!--  <span class="pro-video-wrap-title-rl">￥10000</span>-->
+                                  </div>
+                                    <!--n-->
+                                  <div class="pro-video-wrap-title-b">
+                                      <!--<span class="pro-video-wrap-title-1">发布时间：</span>--> 
+                                      <volist name="vo.label" id="label">
+                                      <span class="pro-video-wrap-title-1" title="{$label}">{$label}</span>
+                                      </volist>
+                                      <div class="pro-video-wrap-title-br" style="">
+                                          <img src="__HOME_PICTURE__/read.png">
+                                          <span class="pro-video-wrap-title-2 video_num">{$vo.browse}</span>
+                                      </div>
+                                  </div>
+                                  <!--/n-->
+                          </div>
+                      </div>
+                  </div>
+                <!--/1-->                
+                </a>                        
+                </volist>
+            </div>
+        </div>
+    </div>  
+</section>
+<!-- <div class="scott">
+  <div class="page">
+  <a class="first" href="/anli?oid=&fid=&fiveid=&page=1">首页</a>
+  <a class="prev" href="javascript:;">上一页</a>
+  <span class="current">1</span>
+  <a class="num" href="/anli?oid=&fid=&fiveid=&page=2">2</a>
+  <a class="num" href="/anli?oid=&fid=&fiveid=&page=3">3</a>
+  <a class="num" href="/anli?oid=&fid=&fiveid=&page=4">4</a>
+  <a class="num" href="/anli?oid=&fid=&fiveid=&page=5">5</a>
+  <a class="next" href="/anli?oid=&fid=&fiveid=&page=2">下一页</a>
+  <a class="end" href="/anli?oid=&fid=&fiveid=&page=8">末页</a>
+  <span class="rows">共 89 条记录</span>
+  </div>
+</div> -->
+<div class="scott">
+  {$page}
+</div>
+
+ 
+
+   
+    <script src="__HOME_JS__/bootstrap.js" type="text/javascript"></script>
+    <script src="__HOME_JS__/header.js"></script>
+    <!-- <script src="__HOME_JS__/public.js"></script> -->
+    <script type="text/javascript">
+        $('.carousel').carousel({ interval: 2000})
+    </script>
+    <script type="text/javascript">
+        //顶部滚动固定
+        var doc_w = $(document).width();
+//        var ini_search_input = $(".gpc-se-bg").offset().top;
+        $(window).scroll(function(){
+            var scroll_top =  $(document).scrollTop();
+            var nav_top = $(".nav-container").offset().top;
+//            var search_input = $(".gpc-se-bg").offset().top;
+            if(doc_w <= 768 ) {
+                //手机端固定搜索条
+//                if(scroll_top >= search_input) {
+//                    $(".gpc-se-bg").addClass("fixed");
+//                }else{
+//                    $(".gpc-se-bg").removeClass("fixed");
+//                }
+//                if(search_input <= ini_search_input-10) {
+//                    $(".gpc-se-bg").removeClass("fixed");
+//                }
+
+            }else{
+                //固定导航栏
+                if(scroll_top >= nav_top) {
+                    $(".nav-container").addClass("nav-fixed");
+                }else {
+                    $(".nav-container").removeClass("nav-fixed");
+                }
+                if(nav_top <= 80) {
+                    $(".nav-container").removeClass("nav-fixed");
+                }
+            }
+        });
+    </script>
+    <script>
+    $('.fri-link li').hide();
+    $("#link_more").on("click",function(){
+        if($(this).hasClass('addclass')){
+            $("#ck_hides").css({"height":"auto"})
+            $(this).css({"backgroundPosition":"0px -20px"})
+            $(this).removeClass("addclass")
+        }else{
+            $(this).addClass("addclass")
+            $("#ck_hides").css({"height":"50px"})
+            $(this).css({"backgroundPosition":"0px 0px"})
+        }
+
+    })
+$(".video_con,.video_a,.news_data").click(function() {
+      var that = $(this),
+        datas = {},
+        flog;
+      if (that.hasClass("news_data")) {
+            flog = false;
+            datas.type = "imageNews"
+          } else {
+            flog = true;
+            datas.type = "imageNews"
+          }
+      datas.id = that.attr("data-id");
+      $.ajax({
+        type: "GET",
+        url: "/home/index/hit", 
+        data: datas,
+        success: function(data) {
+          if (flog) {
+            that.parent().parent().find(".video_num").html(data)
+          }
+        }
+      })
+});
+    </script>
+    <script type="text/javascript">
+     $(".hs-fwxm").hover(function(){
+        $(".hs-fwxm-all").fadeIn();
+        $(".hs-fwxm").css({"background-color":""});
+        $(".hs-fwxm>a").css({"background":"url(__HOME_IMAGES__/new-top.png) 85px 32px no-repeat"});
+    },function(){
+        $(".hs-fwxm-all").fadeOut();
+//      $(".gpc-menu-sy").fadeIn();
+        $(".hs-fwxm").css({"background-color":""});
+         $(".hs-fwxm>a").css({"background":"url(__HOME_IMAGES__/new-down.png) 85px 32px no-repeat"});
+    });
+     function loca(){
+       var oid=$("input[name='oid']").val();
+       var mid=$("input[name='mid']").val();
+       var url="/anli/";
+       url+=oid+'-'+mid+'-'+'1';
+       window.location.href=url;
+     }
+     function setCategory($category_id=0){
+      $("input[name='oid']").val($category_id);
+      loca();
+     }
+     function setMid($mid=0){
+        $("input[name='mid']").val($mid);
+        loca();
+     }
+</script>
+</block>

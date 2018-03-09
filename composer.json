@@ -1,0 +1,7 @@
+{
+  "require": {
+    "guzzlehttp/guzzle": "4.2.*",
+    "league/csv": "6.0.*", 
+    "spatie/string": "1.8.*"
+   }
+}

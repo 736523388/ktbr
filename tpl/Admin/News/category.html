@@ -1,0 +1,130 @@
+<extend name="Public:base"/>
+<block name="title">动态分类</block>
+<block name="content">
+    <div class="page-header">
+    <h1><i class="fa fa-home"></i> 首页 &gt;动态分类</h1>
+    </div>
+    <div class="col-xs-12">
+        <div class="tabbable">
+            <ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab">
+            <li class="active"><a href="#home" data-toggle="tab">分类列表</a></li>
+            <li> <a href="javascript:;" onclick="add()">添加分类</a></li>
+            </ul>
+            <div class="tab-content">
+                <form class="" action="{:U('Admin/News/order_category')}" method="post">
+                    <table class="table table-striped table-bordered table-hover table-condensed">
+                    <tr>
+                    <th width="5%">排序</th>
+                    <th>分类名称</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                    </tr>
+                    <foreach name="data" item="v">
+                    <tr>
+                    <td> <input class="input-medium" style="width:40px;height:25px;" type="text" name="{$v['id']}" value="{$v['sort']}"></td>
+                    <td>{$v['title']}</td>
+                    <td><if condition="$v['status'] eq 1">启用<else />关闭</if></td>
+                    <td> 
+                    <a href="javascript:;" linkId="{$v['id']}" linkName="{$v['title']}" linkStatus="{$v['status']}"  onclick="edit(this)">修改</a> | <a href="javascript:if(confirm('确定删除？'))location='{:U('Admin/News/delete_category',array('id'=>$v['id']))}'">删除</a>
+                    </td>
+                    </tr>
+                    </foreach>
+                    <tr>
+                    <th> <input class="btn btn-success" type="submit" value="排序"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="bjy-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> 
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                <h4 class="modal-title" id="myModalLabel"> 添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="bjy-form" class="form-inline" action="{:U('Admin/News/add_category')}" method="post">
+                         <table class="table table-striped table-bordered table-hover table-condensed">
+                         <tr>
+                         <th width="12%">分类名：</th>
+                         <td> <input class="input-medium" type="text" name="title"></td>
+                         </tr>
+                         <tr>
+                         <th width="12%">状态：</th>
+                         <td> <input type="radio" name="status" value="1" checked>启用<input type="radio" name="status" value="2">关闭</td>
+                         </tr>
+                         <tr>
+                         <th></th>
+                         <td> <input class="btn btn-success" type="submit" value="添加"></td>
+                         </tr>
+                         </table>
+                    </form>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="modal fade" id="bjy-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header"> 
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                 <h4 class="modal-title" id="myModalLabel"> 修改分类</h4>
+                 </div>
+                 <div class="modal-body">
+                     <form id="bjy-form" class="form-inline" action="{:U('Admin/News/edit_category')}" method="post" enctype="multipart/form-data"> 
+                         <input type="hidden" name="id">
+                         <table class="table table-striped table-bordered table-hover table-condensed">
+                         <tr>
+                         <th width="12%">分类名：</th>
+                         <td> <input class="input-medium" type="text" name="title"></td>
+                         </tr>
+                         <tr>
+                         <th width="12%">状态：</th>
+                         <td> <input type="radio" name="status" value="1" checked class="cb-radio">启用<input type="radio" name="status" value="2" class="cb-radio">关闭</td>
+                         </tr>
+                         <tr>
+                         <th></th>
+                         <td> <input class="btn btn-success" type="submit" value="修改"></td>
+                         </tr>
+                         </table>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     </div>
+</block>
+<block name="js">
+<script>
+    // 添加菜单
+    function add(){
+        // $("input[name='name'],input[name='mca']").val('');
+        // $("input[name='pid']").val(0);
+        $("input[name='title'],input[name='url']").val('');
+        $('#bjy-add').modal('show');
+    }
+
+    // 修改菜单
+    function edit(obj){
+        var linkId=$(obj).attr('linkId');
+        var linkName=$(obj).attr('linkName');
+        var linkStatus=$(obj).attr('linkStatus');
+        $("input[name='id']").val(linkId);
+        $("input[name='title']").val(linkName);
+        var radios = $(".cb-radio");
+        if(linkStatus==1){
+            // $(".cb-radio[value='1']").attr("checked","checked"); 
+            radios.eq(0).prop("checked", true);
+            radios.eq(1).prop("checked", false);
+        }else if(linkStatus==2){
+            // $(".cb-radio[value='2']").attr("checked","checked"); 
+            radios.eq(0).prop("checked", false);
+            radios.eq(1).prop("checked", true);
+        }
+        $('#bjy-edit').modal('show');
+    }
+    </script></block>

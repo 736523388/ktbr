@@ -1,0 +1,106 @@
+<extend name="Public:base"/>
+<block name="title">分类管理</block>
+<block name="content">
+    <div class="page-header">
+    <h1><i class="fa fa-home"></i> 首页 &gt;网站设置</h1>
+    </div>
+   <form id="bjy-form" class="form-inline" method="post" enctype="multipart/form-data">
+         <table class="table table-striped table-bordered table-hover table-condensed">
+         <tr>
+         <th width="12%">网站名称：</th>
+         <td> <input class="input-medium" type="text" name="web_name" value="{$info.web_name}"></td>
+         </tr>
+         <tr>
+         <th width="12%"><p>黑色LOHO</p><img src="{$info.logo_b}"></th>
+         <td><input type="file" name="logo_b">白色LOGO显示在黑色的导航栏上</td>
+         </tr>
+         <tr>
+         <th width="12%"><p>白色LOHO</p><img src="{$info.logo_w}"></th>
+         <td> <input type="file" name="logo_w">黑色LOGO显示在白色的导航栏上</td>
+         </tr>
+         <tr>
+         <th width="12%"><p>微信客服二维码</p><img src="{$info.wx_logo}"></th>
+         <td><input type="file" name="wx_logo">客服微信二维码</td>
+         </tr>
+
+         <tr>
+         <th width="12%"><p>微信公众号二维码</p><img src="{$info.wxgzh}"></th>
+         <td><input type="file" name="wxgzh">微信公众号二维码</td>
+         </tr>
+         <tr>
+         <th width="12%">客服电话：</th>
+         <td><input class="input-medium" type="text" name="telephone" value="{$info.telephone}"></td>
+         </tr>
+         <tr>
+         <th width="12%">客服QQ：</th>
+         <td><input class="input-medium" type="text" name="service_qq" value="{$info.service_qq}"></td>
+         </tr>
+
+         <tr>
+         <th width="12%">咨询电话：</th>
+         <td> <input class="input-medium" type="text" name="phone" value="{$info.phone}"></td>
+         </tr>
+         <tr>
+         <th width="12%">咨询手机：</th>
+         <td> <input class="input-medium" type="text" name="mobile" value="{$info.mobile}"></td>
+         </tr>
+         <tr>
+         <th width="12%">版权：</th>
+         <td> <input class="input-medium" type="text" name="copyright" value="{$info.copyright}"></td>
+         </tr>
+         <tr>
+         <th width="12%">备案：</th>
+         <td> <input class="input-medium" type="text" name="record" value="{$info.record}"></td>
+         </tr>
+         <tr>
+         <th width="12%">站长统计：</th>
+         <td> 
+         <textarea name="statistics" style="width: 50%;height: 100px;overflow: auto;">{$info.statistics}</textarea>
+         </td>
+         </tr>
+         <tr>
+         <th></th>
+         <td> <input class="btn btn-success" type="submit" value="确认"></td>
+         </tr>
+         </table>
+    </form>
+</block>
+<block name="js">
+<script>
+    // 添加菜单
+    function add(){
+        // $("input[name='name'],input[name='mca']").val('');
+        // $("input[name='pid']").val(0);
+        $('#bjy-add').modal('show');
+    }
+
+    // 添加子菜单
+    // function add_child(obj){
+    //     var navId=$(obj).attr('navId');
+    //     $("input[name='pid']").val(navId);
+    //     $("input[name='name']").val('');
+    //     $("input[name='mca']").val('');
+    //     $("input[name='ico']").val('');
+    //     $('#bjy-add').modal('show');
+    // }
+
+    // 修改菜单
+    function edit(obj){
+        var navId=$(obj).attr('navId');
+        var navName=$(obj).attr('navName');
+        var navMca=$(obj).attr('navMca');
+        $("input[name='category_id']").val(navId);
+        $("input[name='title']").val(navName);
+        var radios = $(".cb-radio");
+        if(navMca==1){
+            // $(".cb-radio[value='1']").attr("checked","checked"); 
+            radios.eq(0).prop("checked", true);
+            radios.eq(1).prop("checked", false);
+        }else if(navMca==2){
+            // $(".cb-radio[value='2']").attr("checked","checked"); 
+            radios.eq(0).prop("checked", false);
+            radios.eq(1).prop("checked", true);
+        }
+        $('#bjy-edit').modal('show');
+    }
+    </script></block>

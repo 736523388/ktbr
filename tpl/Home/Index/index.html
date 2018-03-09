@@ -1,0 +1,586 @@
+<extend name="Public:base" />
+<block name="main">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators do-dats">
+                <volist name="banner" id="vo">
+                <li data-target="#carousel-example-generic" data-slide-to="{$key}" <if condition="$key eq 0">class="active"</if>></li>
+                </volist>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <volist name="banner" id="vo">
+                <div class="item <if condition='$key eq 0'>active</if>">
+                    <a href="{$vo.url}" target="view_window">
+                    <img src="{$vo.thumb}" alt="{$vo.title}">
+                    </a>
+                    <div class="carousel-caption">
+                          <!---->
+                          <!---->
+                    </div>
+                </div> 
+                </volist>          
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                
+                <span class="glyphicon glyphicon-l" aria-hidden="true"><img src="__HOME_PICTURE__/lunbo-left.png"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                
+                <span class="glyphicon glyphicon-r" aria-hidden="true"><img src="__HOME_PICTURE__/lunbo-right.png"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--/搜索-->
+            <div class="sale-con" style="display:none;">
+                <div style="color: #be945e;font-size: 18px;">拍片需求</div>
+                    <span class="sale-con-span1">10秒提交，立即致电免费策划！</span>
+                    <form id="form1">
+                        <select class="sale-con-select" name="sp_type">
+                            <option value="视频类型">视频类型</option>
+                            <option value="产品片">产品片</option>
+                            <option value="营销片">营销片</option>
+                            <option value="宣传片">宣传片</option>
+                            <option value="微电影">微电影</option>
+                            <option value="其他">其他</option>
+                        </select>
+                        <select class="sale-con-select" name="sp_price">
+                            <option value="制作预算">制作预算</option>
+                            <option value="1000-5000">1000-5000</option>
+                            <option value="5000-10000">5000-10000</option>
+                            <option value="20000-50000">20000-50000</option>
+                            <option value="50000-100000">50000-100000</option>
+                            <option value="100000以上">100000以上</option>
+                        </select>
+                        <input class="sale-con-input" name="fullname" type="text" placeholder="联系人姓名" />
+                        <input class="sale-con-input" name="tel" id="phone" type="text" placeholder="手机号码" />
+                        <p>
+                            <input class="sale-con-inputs" name="verification" id="verification" type="text" placeholder="短信验证码" /><span class="x-vtBtn" id="x-vtBtn">获取验证码</span>
+                        </p>
+                        <p class="error-m"></p>
+                        <span class="sale-con-a1" id="submitgujia">免费策划</span>
+                    </form>
+                </div>
+                <img class="x-prompt" id="x-prompt" src="__HOME_PICTURE__/prompt.png" />
+                <div class="sale-bg close-sale"></div>
+            </div>
+        <section class="adv">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="adv_con">
+                        <div class="col-md-4 col-xs-4">
+                            <div class="adv-wrap">
+                                <div class="adv-wrap-left">
+                                    <span class="adv1"></span>
+                                </div>
+                                <div class="adv-wrap-right">
+                                    <h2>免费创意策划</h2>
+                                    <p>无限创意 效果无忧</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <div class="adv-wrap">
+                                <div class="adv-wrap-left">
+                                    <span class="adv2"></span>
+                                </div>
+                                <div class="adv-wrap-right">
+                                    <h2>一站式全方位服务</h2>
+                                    <p>专属项目专员一站式服务</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <div class="adv-wrap">
+                                <div class="adv-wrap-left">
+                                    <span class="adv3"></span>
+                                </div>
+                                <div class="adv-wrap-right">
+                                    <h2>视频千元起</h2>
+                                    <p>超低预算拍大片</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--焦点推荐视频开始-->
+        <section class="three-video">
+            <div class="three-video-inf">
+                <div class="container-fluid">
+                    <div class="page-header product-video-title" style="border-bottom:0;">
+                        <h2><a class="d_name" href="javascript:void(0)">近期作品&nbsp;&nbsp;RECENT WORKS</a></h2>
+                        <a class="more" href="/category">更多视频<img src="__HOME_PICTURE__/new-more.png" alt="更多"></a>
+                    </div>
+                    <div class="row pad-mar">
+                        <volist name="timesVideo" id="vo" offset="0" length='1'>
+                        <div class="col-md-6 col-sm-6 col-xs-12 pad-mar pad-mar2">
+                            <div class="three-video-wrap  pad-mar video2">
+                                <div id="a1" class="nx_jd video_con" data-id="{$vo.id}">
+                                        <img src="{$vo.thumb}" width="640" height="360" alt="{$vo.title}">
+                                        <div class="video_overlay"></div>
+                                        <div class="video_play width56"><img data-original="__HOME_PICTURE__/paly56.png" class="lazy" alt="{$vo.title}"></div>
+                                        <div class="bigzhezhao"></div>
+
+                                    </div>
+                                    <span class="over-text bigvideo-text show-text">{$vo.title}</span>
+                                    <span class="over-text bigvideo-text hide-text"><?php echo video_brand_industry($vo['id'])?></span>
+
+                                    <span class="over-text bigvideo-time">{$vo.times}</span>
+                                    <!-- 弹出层 -->
+                                    <div id="demo3" class="gpc-t-box nx_sjd">
+                                        <div class="gpc-video-t">
+<!--                                             <embed allowscriptaccess="always" allownetworking="all" allowfullscreen="true" width="670" height="377" type="application/x-shockwave-flash" src="flash/50076226909.swf">
+                                            </embed> -->
+                                            <embed src="__PUBLIC__/ckplayer/ckplayer.swf" flashvars="video={$vo.path}" autostart="true" allownetworking="all" quality="high" width="670" height="377" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"></embed>
+                                        </div>
+                                        <div class="gpc-video-t1">
+                                            <div class="gpc-video-t1-lf">
+                                                <h2 class="gpc-video-t1-lf-1">{$vo.title}</h2><span class="gpc-video-t1-lf-2"></span>
+                                            </div>
+                                            <div class="gpc-video-t1-rt">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="gpc-video-t2">
+                                            <div class="gpc-video-t2-lf">
+                                                <p class="gpc-a1-8" style="font-size:12px; color:#999"> 发布于 {$vo.create_time}&nbsp;&nbsp;&nbsp;时长：{$vo.times} &nbsp;&nbsp;<span class="read"></span><span class="video_num">{$vo.playbacknum}</span></p>
+                                            </div>
+                                            <div class="gpc-video-t2-rt">
+                                                <a class="gpc-a1-9" href="/video/{$vo.id}" target="_blank">查看详情</a>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <!-- 弹出层 -->
+                                    <script type="text/javascript">
+                                    $(function() {
+                                        $(".nx_jd").click(function() {
+                                            $('.nx_sjd').layerModel({
+                                                blurClose: true
+                                            });
+                                        });
+                                    });
+                                    </script>                            
+                                </div>     
+                        </div>
+                        </volist>
+
+                        <div class="col-md-3 col-sm-3 pad-mar pad-mar2">
+                            
+                            <div class="three-video-wrapl ">
+                            <volist name="timesVideo" id="vo" offset="1" length='2'>
+                                <div class="three-video-wrapl_1 col-md-12 col-xs-12 pad-mar video1">
+                                    <div class="run" id="demoBtn2">
+                                        <div class="nx_btntj_t_{$vo.id} video_con" data-id="{$vo.id}">
+                                            <img src="{$vo.thumb}" class="a_img" alt="{$vo.title}">
+                                            
+                                            <div class="video_overlay"></div>
+                                            <div class="video_play video_play2"><img data-original="__HOME_PICTURE__/paly.png" class="lazy" alt="{$vo.title}"></div>
+                                            <div class="smazhezhao"></div>
+
+                                        </div>
+                                        <span class="over-text smallvideo-text show-text">{$vo.title}</span>
+                                        <span class="over-text smallvideo-text hide-text"><?php echo video_brand_industry($vo['id'])?></span>
+                                        <span class="over-text smallvideo-time">{$vo.times}</span>
+                                    </div>
+                                    <!--2-->
+                                    <div id="demo3" class="gpc-t-box nx_showtj_t_{$vo.id}">
+                                        <div class="gpc-video-t">
+<!--                                             <embed allowscriptaccess="always" allownetworking="all" allowfullscreen="true" width="670" height="377" type="application/x-shockwave-flash" src="flash/50054980197.swf">
+                                            </embed> -->
+                                            <embed src="__PUBLIC__/ckplayer/ckplayer.swf" flashvars="video={$vo.path}" autostart="true" allownetworking="all" quality="high" width="670" height="377" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"></embed>
+                                        </div>
+                                        <div class="gpc-video-t1">
+                                            <div class="gpc-video-t1-lf">
+                                                <h2 class="gpc-video-t1-lf-1">{$vo.title}</h2><span class="gpc-video-t1-lf-2"></span>
+                                            </div>
+                                            <div class="gpc-video-t1-rt">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="gpc-video-t2">
+                                            <div class="gpc-video-t2-lf">
+                                                <p class="gpc-a1-8" style="font-size:12px; color:#999"> 发布于 {$vo.create_time}&nbsp;&nbsp;&nbsp;时长：{$vo.times} &nbsp;&nbsp;<span class="read"></span><span class="video_num">{$vo.playbacknum}</span></p>
+                                            </div>
+                                            <div class="gpc-video-t2-rt">
+                                                <a class="gpc-a1-9" href="/video/{$vo.id}" target="_blank">查看详情</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/2-->
+                                </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $(".nx_btntj_t_{$vo.id}").click(function() {
+                                            $('.nx_showtj_t_{$vo.id}').layerModel({
+                                                blurClose: true
+                                            });
+                                        });
+                                    });
+                                </script>
+                                </volist>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-3 col-sm-3 pad-mar pad-mar2">
+                            <div class="three-video-wrapl ">
+                                <volist name="timesVideo" id="vo" offset="3" length='2'>
+                                <div class="three-video-wrapl_1 col-md-12 col-xs-12 pad-mar video1">
+                                    <div class="run" id="demoBtn2">
+                                        <div class="nx_btntj_t_{$vo.id} video_con" data-id="{$vo.id}">
+                                            <img src="{$vo.thumb}" class="a_img" alt="{$vo.title}">
+                                            
+                                            <div class="video_overlay"></div>
+                                            <div class="video_play video_play2"><img data-original="__HOME_PICTURE__/paly.png" class="lazy" alt="{$vo.title}"></div>
+                                            <div class="smazhezhao"></div>
+
+                                        </div>
+                                        <span class="over-text smallvideo-text show-text">{$vo.title}</span>
+                                        <span class="over-text smallvideo-text hide-text"><?php echo video_brand_industry($vo['id'])?></span>
+                                        <span class="over-text smallvideo-time">{$vo.times}</span>
+                                    </div>
+                                    <!--2-->
+                                    <div id="demo3" class="gpc-t-box nx_showtj_t_{$vo.id}">
+                                        <div class="gpc-video-t">
+<!--                                             <embed allowscriptaccess="always" allownetworking="all" allowfullscreen="true" width="670" height="377" type="application/x-shockwave-flash" src="flash/50054980197.swf">
+                                            </embed> -->
+                                            <embed src="__PUBLIC__/ckplayer/ckplayer.swf" flashvars="video={$vo.path}" autostart="true" allownetworking="all" quality="high" width="670" height="377" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"></embed>
+                                        </div>
+                                        <div class="gpc-video-t1">
+                                            <div class="gpc-video-t1-lf">
+                                                <h2 class="gpc-video-t1-lf-1">{$vo.title}</h2><span class="gpc-video-t1-lf-2"></span>
+                                            </div>
+                                            <div class="gpc-video-t1-rt">
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="gpc-video-t2">
+                                            <div class="gpc-video-t2-lf">
+                                                <p class="gpc-a1-8" style="font-size:12px; color:#999"> 发布于 {$vo.create_time}&nbsp;&nbsp;&nbsp;时长：{$vo.times} &nbsp;&nbsp;<span class="read"></span><span class="video_num">{$vo.playbacknum}</span></p>
+                                            </div>
+                                            <div class="gpc-video-t2-rt">
+                                                <a class="gpc-a1-9" href="video/{$vo.id}" target="_blank">查看详情</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/2-->
+                                </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $(".nx_btntj_t_{$vo.id}").click(function() {
+                                            $('.nx_showtj_t_{$vo.id}').layerModel({
+                                                blurClose: true
+                                            });
+                                        });
+                                    });
+                                </script>
+                                </volist>                      
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--焦点推荐视频结束-->
+        <!--品牌视频开始-->
+        <section class="name_video">
+            <div class="name_video_inf">
+                <div class="container-fluid">
+                    <div class="page-header product-video-title" style="border-bottom:0;">
+                        <h2><a class="d_name" href="javascript:void(0)">品牌视频&nbsp;&nbsp;BRAND VIDEO</a></h2>
+                        <a class="more" href="/category">更多视频<img src="__HOME_PICTURE__/new-more.png" alt="更多"></a>
+                    </div>
+                    <div class="row">
+                        <volist name="brandVideo" id="vo">
+                        <div class="col-xs-6 col-sm-6 col-md-4 pad-mar pad-mar2">
+                            <div class="product-video-wrap pad-mar">
+                                <div id="demoBtn3" class="video_con nx_btn_b_{$vo.id}" data-id="{$vo.id}">
+                                    <img data-original="{$vo.thumb}" alt="{$vo.title}" class="b_img lazy">
+                                    
+                                    <div class="video_overlay"></div>
+                                    <div class="video_play video_play2"><img data-original="__HOME_PICTURE__/paly.png" class="lazy" alt="{$vo.title}"></div>
+                                    <div class="midzhezhao"></div>
+
+                                </div>
+                                <span class="product-video-wrap-title-lf col-xs-10 over-text midvideo-text show-text">{$vo.title}</span>
+                                <span class="product-video-wrap-title-lf col-xs-10 over-text midvideo-text hide-text"><?php echo video_brand_industry($vo['id'])?></span>
+                                <span class="product-video-wrap-title-rl col-xs-2 midvideo-time"><a class="video_a2" href="/video/{$vo.id}.html" target="_blank" data-id="{$vo.id}">{$vo.times}</a></span>
+                            </div>
+                            <div id="demo3" class="gpc-t-box nx_show_b_{$vo.id}">
+                                <div class="gpc-video-t">
+<!--                                     <embed allowscriptaccess="always" allownetworking="all" allowfullscreen="true" width="670" height="377" type="application/x-shockwave-flash" src="flash/50058582560.swf">
+                                    </embed> -->
+                                    <embed src="__PUBLIC__/ckplayer/ckplayer.swf" flashvars="video={$vo.path}" autostart="true" allownetworking="all" quality="high" width="670" height="377" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"></embed>
+                                </div>
+                                <div class="gpc-video-t1">
+                                    <div class="gpc-video-t1-lf">  
+                                        <h2 class="gpc-video-t1-lf-1">{$vo.title}</h2><span class="gpc-video-t1-lf-2"></span>
+                                    </div>
+                                    <div class="gpc-video-t1-rt">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="gpc-video-t2">
+                                    <div class="gpc-video-t2-lf">
+                                        <p class="gpc-a1-8" style="font-size:12px; color:#999"> 发布于 {$vo.create_time}&nbsp;&nbsp;&nbsp;时长：{$vo.times} &nbsp;&nbsp;<span class="read"></span><span class="video_num">{$vo.playbacknum}</span></p>
+                                    </div>
+                                    <div class="gpc-video-t2-rt">
+                                        <a class="gpc-a1-9" href="/video/{$vo.id}" target="_blank">查看详情</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                                $(".nx_btn_b_{$vo.id}").click(function() {
+                                    $('.nx_show_b_{$vo.id}').layerModel({
+                                        blurClose: true
+                                    });
+                                });
+                            });
+                        </script>
+                        </volist>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--品牌视频结束-->
+        <!--产品视频开始-->
+        <section class="product-video">
+            <div class="name_video_inf">
+                <div class="container-fluid">
+                    <div class="page-header product-video-title" style="border-bottom:0;">
+                        <h2><a class="d_name" href="javascript:void(0)">产品视频&nbsp;&nbsp;THE PRODUCT VIDEO</a></h2>
+                        <ul class="product-video-title-ul">
+                            <!-- <li><a href="#" style="color:#F00;">服装配饰</a>|</li>-->
+                        </ul>
+                        <a class="more" href="/category">更多视频<img src="__HOME_PICTURE__/new-more.png" alt="更多"></a>
+                    </div>
+                    <!--第一行循环-->
+                    <div class="row">
+                        <volist name="industryVideo" id="vo" offset="0" length='4'>
+                        <div class="col-xs-6 col-sm-4 col-md-3 pad-mar2">
+                                <div class="product-video-wrap">
+                                    <div id="demoBtn3" class="video_con nx_btn_i_{$vo.id}" data-id="{$vo.id}" class="brand_img">
+                                        <img data-original="{$vo.thumb}" alt="{$vo.title}" class="lazy" src="__HOME_PICTURE__/gpcmr.jpg">
+                                        
+                                        <div class="video_overlay"></div>
+                                        <div class="video_play video_play2"><img src="__HOME_PICTURE__/paly.png" alt="{$vo.title}"></div>
+                                        <div class="smazhezhao"></div>
+
+                                    </div>
+                                    <div class="product-video-wrap-title" style="height: 55px">
+                                        <span class="product-video-wrap-title-lf col-xs-12 over-text sm-tt nx_btn{$vo.id}" data-id="{$vo.id}">{$vo.title}</span>
+                                        <span class="product-video-wrap-title-rl col-xs-4 smallvideo-time"><a class="video_a2" href="/video/{$vo.id}.html" target="_blank" data-id="{$vo.id}">{$vo.times}</a></span>
+                                        <span style="display: block;font-size: 12px;color: #9e9e9e;padding-left: 3px;"><?php echo video_brand_industry($vo['id'])?></span>
+                                    </div>
+                                </div>
+                                <div id="demo3" class="gpc-t-box nx_show_i_{$vo.id}">
+                                    <div class="gpc-video-t">
+<!--                                         <embed allowscriptaccess="always" allownetworking="all" allowfullscreen="true" width="670" height="377" type="application/x-shockwave-flash" src="flash/50047896225.swf">
+                                        </embed> -->
+                                        <embed src="__PUBLIC__/ckplayer/ckplayer.swf" flashvars="video={$vo.path}" autostart="true" allownetworking="all" quality="high" width="670" height="377" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"></embed>
+                                    </div>
+                                    <div class="gpc-video-t1">
+                                        <div class="gpc-video-t1-lf">
+                                            <h2 class="gpc-video-t1-lf-1">{$vo.title}</h2><span class="gpc-video-t1-lf-2"><span class="read"></span>{$vo.playbacknum}</span>
+                                        </div>
+                                        <div class="gpc-video-t1-rt">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="gpc-video-t2">
+                                        <div class="gpc-video-t2-lf">
+                                            <p class="gpc-a1-8" style="font-size:12px; color:#999"> 发布于 {$vo.create_time}&nbsp;&nbsp;&nbsp;时长：{$vo.times} &nbsp;&nbsp;<span class="read"></span><span class="video_num">{$vo.playbacknum}</span></p>
+                                        </div>
+                                        <div class="gpc-video-t2-rt">
+                                        <a class="gpc-a1-9" href="/video/{$vo.id}" target="_blank">查看详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <script type="text/javascript">
+                        $(function() {
+                            $(".nx_btn_i_{$vo.id}").click(function() {
+                                $('.nx_show_i_{$vo.id}').layerModel({
+                                    blurClose: true
+                                });
+                            });
+                        });
+                        </script> 
+                        </volist>                  
+                    </div>
+                    <!--第二行循环-->
+                    <div class="row">
+                        <volist name="industryVideo" id="vo" offset="4" length='4'>
+                            <div class="col-xs-6 col-sm-4 col-md-3 pad-mar2">
+                                <div class="product-video-wrap">
+                                    <div id="demoBtn3" class="video_con nx_btn_i_{$vo.id}" data-id="{$vo.id}" class="brand_img">
+                                        <img data-original="{$vo.thumb}" alt="{$vo.title}" class="lazy" src="__HOME_PICTURE__/gpcmr.jpg">
+                                        
+                                        <div class="video_overlay"></div>
+                                        <div class="video_play video_play2"><img src="__HOME_PICTURE__/paly.png" alt="{$vo.title}"></div>
+                                        <div class="smazhezhao"></div>
+
+                                    </div>
+                                    <div class="product-video-wrap-title" style="height: 55px">
+                                        <span class="product-video-wrap-title-lf col-xs-12 over-text sm-tt nx_btn{$vo.id}" data-id="{$vo.id}">{$vo.title}</span>
+                                        <span class="product-video-wrap-title-rl col-xs-4 smallvideo-time"><a class="video_a2" href="/video/{$vo.id}" target="_blank" data-id="{$vo.id}"></a></span>
+                                        <span style="display: block;font-size: 12px;color: #9e9e9e;padding-left: 3px;"><?php echo video_brand_industry($vo['id'])?></span>
+                                    </div>
+                                </div>
+                                <div id="demo3" class="gpc-t-box nx_show_i_{$vo.id}">
+                                    <div class="gpc-video-t">
+<!--                                         <embed allowscriptaccess="always" allownetworking="all" allowfullscreen="true" width="670" height="377" type="application/x-shockwave-flash" src="flash/50030786867.swf">
+                                        </embed> -->
+                                        <embed src="__PUBLIC__/ckplayer/ckplayer.swf" flashvars="video={$vo.path}" autostart="true" allownetworking="all" quality="high" width="670" height="377" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"></embed>
+                                    </div>
+                                    <div class="gpc-video-t1">
+                                        <div class="gpc-video-t1-lf">
+                                            <h2 class="gpc-video-t1-lf-1">{$vo.title}</h2><span class="gpc-video-t1-lf-2"><span class="read"></span>{$vo.playbacknum}</span>
+                                        </div>
+                                        <div class="gpc-video-t1-rt">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="gpc-video-t2">
+                                        <div class="gpc-video-t2-lf">
+                                            <p class="gpc-a1-8" style="font-size:12px; color:#999"> 发布于 {$vo.create_time}&nbsp;&nbsp;&nbsp;时长：{$vo.times} &nbsp;&nbsp;<span class="read"></span><span class="video_num">{$vo.playbacknum}</span></p>
+                                        </div>
+                                        <div class="gpc-video-t2-rt">
+                                            <a class="gpc-a1-9" href="/video/{$vo.id}" target="_blank">查看详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                            $(function() {
+                                $(".nx_btn_i_{$vo.id}").click(function() {
+                                    $('.nx_show_i_{$vo.id}').layerModel({
+                                        blurClose: true
+                                    });
+                                });
+                            });
+                            </script>  
+                        </volist>                 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--产品视频结束-->
+        <!--城市站最新动态开始-->
+        <section class="three-video">
+            <div class="three-video-inf">
+                <div class="container-fluid">
+                    <div class="page-header product-video-title" style="border-bottom:0;">
+                        <h2><a class="d_name" href="javascript:void(0)">行业新闻&nbsp;&nbsp;INDUSTRY NEWS</a></h2>
+                                                </div>
+                    <div class="row">
+                        <div class="col-xs-9 col-sm-9 col-md-9" style="padding:0 20px 0 10px;">
+                            <volist name="news" id="vo">
+                            <a href="/post_details/{$vo.id}" style="color:#333;" target="_blank">
+                                    <div class="media news-wrap news-under">
+                                        <div class="row">
+                                            <div class="col-sm-3 col-xs-3" style="width: 20%;">
+                                                <div class="news-video-img news_data" data-id="467">
+                                                    <img class="media-object img-responsive x-news-img lazy" data-original="{$vo.thumb}" alt="{$vo.title}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-9 col-xs-9">
+                                                <div class="news_data" data-id="467">
+                                                    <h4 class="news-h2" style="margin-bottom:0px;">{$vo.title}</h4>
+                                                    <p class="over-text2 p-text" style="height:40px;color: #9e9e9e;font-size: 12px;">{$vo.abstract}</p>
+                                                    <!-- <span href="/news/440.html" class="news-read" style="margin-top:0px;"><span class="read"></span>阅读全文</span> -->
+                                                    <span style="color: #c9c9c9;font-size: 12px;">{$vo.create_time}</span>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </a>
+                            </volist>
+                            <div class="readmore">
+                                <a class="more more1" href="/post">查看更多<img src="__HOME_PICTURE__/big-more.png" alt="更多" style="margin-left: 6px;"></a>
+                            </div> 
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 small-cos">
+                            <div id="carousel-example-generic2" class="carousel slide small-car" data-ride="carousel">
+                                <ol class="carousel-indicators do-dats2">
+                                    <li data-target="#carousel-example-generic2" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic2" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic2" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <img src="__HOME_PICTURE__/3.png" alt="...">
+                                        <div class="carousel-caption">
+                                            <!---->
+                                            <!---->
+                                        </div>
+                                    </div>
+                                    <div class="item"> 
+                                        <img src="__HOME_PICTURE__/1.png" alt="...">
+                                        <div class="carousel-caption">
+                                            <!---->
+                                            <!---->
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="__HOME_PICTURE__/2.png" alt="...">
+                                        <div class="carousel-caption">
+                                            <!---->
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="small-tit">最新动态</div>
+                            <div class="small-list">
+                                <ul>
+                                <volist name="post" id="vo">
+                                    <li><a href="/post_details/{$vo.id}" class="line-limit-length">{$vo.title}</a></li> 
+                                </volist>     
+                                </ul>
+                                <span style="margin-left: 18px;margin-top: 17px;display: block;"> 
+                                  <a class="more" href="/post">更多动态<img src="__HOME_PICTURE__/new-more.png" alt="更多" style="margin-left: 6px;"></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--城市站最新动态结束-->
+        <script>
+        $(document).ready(function(e) {
+            //点击查看详情关闭弹出层
+            $(".gpc-a1-9").click(function() {
+                $('.layerModel_wrapper').hide();
+                $('.layerModel_mask').hide();
+
+            })
+
+
+            //点击页面空白处关闭弹出层
+            $("body").dblclick(function() {
+                $('.layerModel_wrapper').hide();
+                $('.layerModel_mask').hide();
+            })
+
+            //所有标题限制显示20个字
+            $('.over-text').each(function() {
+                var words = $(this).text().length;
+                if(words > 20){
+                    $(this).text($(this).text().slice(0,20));
+                }
+            });
+            //所有标题限制显示20个字
+            $('.over-text2').each(function() {
+                var words = $(this).text().length;
+                if(words > 100){
+                    $(this).text($(this).text().slice(0,100));
+                }
+            });
+
+        });
+        </script>
+</block>

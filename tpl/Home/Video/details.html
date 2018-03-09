@@ -1,0 +1,196 @@
+<extend name="Public:base" />
+<block name="css">
+<link rel="stylesheet" type="text/css" href="__HOME_CSS__/pgwslideshow.css">
+<link href="__HOME_CSS__/css.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="__HOME_CSS__/idangerous.swiper.css">
+<script type="text/javascript">
+			_atrk_opts = {
+				atrk_acct: "T/xno1IWNa1052",
+				domain: "51gpc.com",
+				dynamic: true
+			};
+			(function() {
+				var as = document.createElement('script');
+				as.type = 'text/javascript';
+				as.async = true;
+				as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js";
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(as, s);
+			})();
+		</script>
+		<noscript><img src="__HOME_PICTURE__/atrk.gif" style="display:none" height="1" width="1" alt="" /></noscript>
+		<!-- End Alexa Certify Javascript -->
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="__HOME_JS__/html5shiv.min.js"></script>
+		<script type="text/javascript" src="__HOME_JS__/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			/*2016-10-10*/
+			
+			.gpc-logo h1 {
+				margin: 0
+			}
+			
+			.yingshi .navbar {
+				min-height: 0;
+			}
+			
+			.yingshi .nav-container {
+				height: auto;
+			}
+		</style>
+</block>
+<block name="main">
+			<input type="hidden" value="{$info.id}" id="video_id">
+			<section class="detial-pro-video">
+				<!--案例-->
+				<div id="anli" style="background: #000;">
+					<!--详情-->
+					<div id="sitecontent">
+						<div class="npagePage">
+							<div class="content">
+								<div class="fw postbody postbody1">
+									<div class="video">
+										<div class="video_left" style="margin: 0 auto; width:790px;">
+											<div id="a1" style="height:400px;">
+<!-- 											<embed src="__PUBLIC__/ckplayer/ckplayer.swf" flashvars="video={$info.path}" autostart="true" allownetworking="all" quality="high" width="670" height="377" align="middle" allowScriptAccess="always" allowFullscreen="true" type="application/x-shockwave-flash"></embed> -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--详情end-->
+				</div>
+<script type="text/javascript" src="__PUBLIC__/ckplayer/ckplayer.js"></script>
+<script type="text/javascript">
+			var videoObject = {
+				container: '#a1', //容器的ID或className
+				variable: 'player',//播放函数名称
+				flashplayer:true,
+				autoplay:true,
+				poster:'{$info.thumb}',//封面图片
+				video: [//视频地址列表形式
+					['{$info.path}', 'video/mp4', '中文标清', 0],
+				]
+			};
+			var player = new ckplayer(videoObject);
+</script>
+
+<!-- 				<script src="__HOME_JS__/ckplayer.js"></script>
+				<script type="text/javascript">
+					var flashvars = {
+						f: '/Upload/Video/2018-03-06/5a9e71f1dc312.mp4',
+						c: 0,
+						/*p:0,
+						h:4,*/
+						b: 1
+					};
+					var params = {
+						bgcolor: '#f00',
+						allowFullScreen: true,
+						allowScriptAccess: 'always',
+						wmode: 'transparent'
+					};
+					CKobject.embedSWF('http://cloud.video.taobao.com//play/u/2586769528/p/1/e/1/t/7/50080574590.swf', 'a1', 'ckplayer_a1', '790', '445', flashvars, params);
+				</script> -->
+				<!--案例end-->
+			</section>
+			<!--1023视频详情改版-->
+			<div class="hs-main">
+				<div class="hs-m-left">
+					<div class="hml-top">
+						<div class="hml-l fl">
+							<p class="title">{$info.title}</p>
+							<p class="jieshao"><a href="javascript:;"><?php echo video_brand_industry($info['id'])?></a>&nbsp;|&nbsp;
+							<span>{$info.times}</span>&nbsp;|&nbsp;
+							<span>{$info.create_time}</span></p>
+							<p class="num">{$info.playbacknum}</p>
+						</div>
+						<div class="hml-r fr hl-share">
+<!-- 							<div class="bdsharebuttonbox fx-container-1" data-tag="share_1">
+								<a class="bds_tsina v-icon" data-cmd="tsina"></a>
+								<a class="bds_weixin v-icon" data-cmd="weixin"></a>
+								<a class="bds_sqq v-icon" data-cmd="sqq"></a>
+							</div> -->
+<!-- 							<a href="https://tb.53kf.com/code/client/10167819/1" target="_blank" class="wypp">我要拍片</a> -->
+						</div>
+					</div>
+					<!--剧照小于3张时不显示此模块-->
+					<!--data-num = "0"用于点击定位查看放大图-->
+<!-- 					<div class="juzhao">
+						<p>剧照</p>
+						<div class="zu-lunbo">
+							<span class="jz-num">共5张</span>
+							<a class="arrow-left" href="#"></a>
+							<a class="arrow-right" href="#"></a>
+							<div class="swiper-container jz-swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div><img data-num = "0" src="__HOME_PICTURE__/4ab2e92cce339c1bdbfea6143b56b20e.jpg"/>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div><img data-num = "1" src="__HOME_PICTURE__/675e3f3e9fbae8f9b491b8e9aba96d4c.jpg"/>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div><img data-num = "2" src="__HOME_PICTURE__/6f5efa1cae0b6334a67c505ba77ea6ab.jpg"/>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div><img data-num = "3" src="__HOME_PICTURE__/e465a87994ad765a5b1ba58c42262657.jpg"/>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div><img data-num = "4" src="__HOME_PICTURE__/d539340094caf822f942eec4560c31e6.jpg"/>
+										</div>
+									</div>									
+								</div>
+							</div>
+						</div>
+					</div>	 -->				
+					<!--/剧照-->
+					<!--文章内容-->
+					<div class="wenzhang">
+						<div class="wz-top">
+							<?php echo htmlspecialchars_decode($info['content'])?>
+						</div>
+					</div>
+					<!--/文章内容-->
+				</div>
+				<!--右侧-->
+				<div class="hs-m-right">
+					<div class="ggw">
+						<a target="_blank" href="javascript:;">
+							<img src="__HOME_PICTURE__/hs-ggw.png"/>
+						</a>
+					</div>
+					<!--相关推荐-->
+					<div class="xgtj">
+						<div class="xgtj-top">
+							<span class="fl">相关推荐</span>
+							<a href="/category" class="fr">更多+</a>
+						</div>
+						<div class="clear"></div>
+						<div class="xgtj-box">
+						<volist name="recommend" id="vo">
+							<a href="/video/{$vo.id}" class="xgtj-item">
+								<div class="xi-img">
+									<img src="{$vo.thumb}"/>
+								</div>
+								<div class="xi-info">
+									<span>{$vo.title}</span>
+									<span>{$vo.times}</span>
+								</div>
+							</a>
+						</volist>
+						</div>
+					</div>
+					<!--/相关推荐-->
+				</div>
+				<!--/右侧-->
+			</div>
+			<!--/1023视频详情改版-->
+</block>

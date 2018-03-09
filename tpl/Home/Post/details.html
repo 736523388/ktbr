@@ -1,0 +1,75 @@
+<extend name="Public:base" />
+<block name="css">
+<link href="__HOME_CSS__/bootstrap_1.css" type="text/css" rel="stylesheet">
+		<link href="__HOME_CSS__/reset_1.css" type="text/css" rel="stylesheet">
+		<!-- <link href="__HOME_CSS__/style_1.css" type="text/css" rel="stylesheet"> -->
+		<link href="__HOME_CSS__/style-new_1.css" type="text/css" rel="stylesheet">
+
+		<link href="__HOME_CSS__/css_1.css" type="text/css" rel="stylesheet">
+
+		<link href="__HOME_CSS__/layermodel_1.css" type="text/css" rel="stylesheet">
+		<link href="__HOME_CSS__/342c9e331cf24874bbb633b1def35de1.css" type="text/css" rel="stylesheet">
+		<script src="__HOME_JS__/jquery-1.11.3.js" type="text/javascript"></script>
+		<!--[if lt IE 9]>
+<script type="text/javascript" src="__HOME_JS__/html5shiv.min.js"></script>
+<script type="text/javascript" src="__HOME_JS__/respond.min.js"></script>
+<![endif]-->
+<style type="text/css">
+.hs-main{
+	padding-top: 20px;
+}	
+</style>
+</block>
+<block name="main">
+<!--1023视频详情改版-->
+			<div class="hs-main">
+				<div class="hs-m-left">
+					<div class="hml-top">
+						<div class="hml-l fl wzxq">
+							<p class="title wzxq">{$info.title}</p>
+							<p class="jieshao wzxq"><a href="/list.html"><?php echo post_category_name($info['category_id'])?></a>&nbsp;&nbsp;
+								<span>{$info.create_time}</span>&nbsp;&nbsp;<span class="kan-num">{$info.browse}</span></p>
+						</div>
+						<div class="hml-r fr hl-share">
+							<div class="bdsharebuttonbox fx-container-1" data-tag="share_1">
+								<a class="bds_tsina v-icon" data-cmd="tsina"></a>
+								<a class="bds_weixin v-icon" data-cmd="weixin"></a>
+								<a class="bds_sqq v-icon" data-cmd="sqq"></a>
+							</div>
+						</div>
+					</div>
+					<!--文章内容-->
+					<div class="wenzhang wzxq">
+						<div class="wz-top">
+							<div class="xian"></div>
+							<?php echo htmlspecialchars_decode($info['content'])?>
+						</div>
+					
+					</div>
+					<!--/文章内容-->
+				</div>
+				<!--右侧-->
+				<div class="hs-m-right">
+					<div class="ggw">
+						<a target="_blank" href="http://www.51gpc.com/tvc.html">
+							<img src="__HOME_PICTURE__/hs-ggw.png"/>
+						</a>
+					</div>
+					<!--相关推荐-->
+					<div class="xgtj">
+						<div class="xgtj-top">
+							<span class="fl">相关推荐</span>
+							<a href="/list.html" class="fr">更多+</a>
+						</div>
+						<div class="clear"></div>
+						<div class="xgtj-box">
+							<ul>
+								<li><a href="/news/522.html">上海宣传片制作这样才能出效果</a></li><li><a href="/news/521.html">上海宣传片制作的必备条件</a></li><li><a href="/news/520.html">上海影视公司的五大视频剪辑制作技巧</a></li><li><a href="/news/519.html">上海影视制作公司的影响价格的因素有哪些</a></li>							</ul>
+						</div>
+					</div>
+					<!--/相关推荐-->
+				</div>
+				<!--/右侧-->
+			</div>
+			<!--/1023视频详情改版-->
+</block>

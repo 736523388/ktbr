@@ -1,0 +1,121 @@
+<extend name="Public:base" />
+<block name="css">
+<link rel="stylesheet" type="text/css" href="__HOME_CSS__/list.css" />
+<style type="text/css">
+			.on {
+				display: block;
+			}
+			
+			.content-h ul li .cur {
+				font-size: 20px;
+				color: #E62944;
+				border-bottom: 4px solid #E62944;
+			}
+		</style>
+</block>
+<block name="main">
+<!--内容部分-->
+<div class="all">
+	<div class="content">
+		<div class="content-img">
+			<img src="__HOME_PICTURE__/list-banner.jpg" />
+		</div>
+		<div class="content-h">
+			<ul>
+				<!--<li><span dataid=></span></li>-->
+				<li id="all"><span class="cur">全部</span></li>
+				<volist name="postcategory" id="vo">
+				<li id="{$vo.id}"><span>{$vo.title}</span></li>
+				</volist>
+<!-- 				<li id="20"><span>hi，跟屁虫</span></li>
+				<li id="18"><span>佳片赏析</span></li>
+				<li id="14"><span>工作花絮</span></li>
+				<li id="11"><span>影视知识</span></li>	 -->		
+            </ul>
+		</div>
+		<div class="content-m">
+					<!--左侧div-->
+					<div class="content-left tab">
+						<volist name="list" id="vo">
+							<a href="/post_details/{$vo.id}">
+								<div class="content-m-div" style="display: block">
+									<div class="content-m-img">
+										<img src="{$vo.thumb}" />
+									</div>
+									<div class="content-m-text" data-id="{$vo.id}">
+										<p>{$vo.title}</p>
+										<p>{$vo.create_time}</p>
+										<span id="content-span"></span>
+										<p class="content-p">{$vo.abstract}</p>
+									</div>
+								</div>
+							</a>
+						</volist>
+					</div>
+					<volist name="postcategory" id="vo">
+						<div class="content-left{$vo.id} tab">
+						<volist name="list" id="vo2">
+							<if condition="$vo2['category_id'] eq $vo['id']">
+								<a href="/post_details/{$vo2.id}">
+									<div class="content-m-div" style="display: block">
+										<div class="content-m-img">
+											<img src="{$vo2.thumb}" />
+										</div>
+										<div class="content-m-text" data-id="{$vo2.id}">
+											<p>{$vo2.title}</p>
+											<p>{$vo2.create_time}</p>
+											<span id="content-span"></span>
+											<p class="content-p">{$vo2.abstract}</p>
+										</div>
+									</div>
+								</a>
+							</if>
+						</volist>
+						</div>
+					</volist>
+					<div class="content-right">
+						<div class="content-right-top">
+							<img src="__HOME_PICTURE__/yingshi2016.jpg" />
+							<!-- <img src="__HOME_PICTURE__/genpichong.png" />
+							<img src="__HOME_PICTURE__/companies--report.png" />
+							<span id="content-right-span">
+								跟屁虫企业报告
+							</span>
+							<a href="" class="pdf"></a> -->
+						</div>
+
+						<div class="content-right-mid">
+							<img src="__HOME_PICTURE__/list-6.jpg" />
+							<!-- <img src="__HOME_PICTURE__/logo2.png" />
+							<img src="__HOME_PICTURE__/genpichong-1.png" />
+							<span id="content-mid-span">
+								年报总结
+							</span>
+
+							<span id="content-mid-span2">
+								跟屁虫
+							</span> -->
+
+						</div>
+
+					</div>
+		</div>
+
+	</div>
+	<div class="left-y">
+		<p id="p1" style="display: none;">{$count}</p>
+		<table width="800px"  style="margin-top: 29px;margin-left: -150px;">
+
+					<tr>
+						<td>
+							<div id="barcon" name="barcon"></div>
+						</td>
+					</tr>
+		</table>
+	</div>
+</div>
+<script src="__HOME_JS__/list.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+window.onload=goPage(1,8);
+</script>
+</block>

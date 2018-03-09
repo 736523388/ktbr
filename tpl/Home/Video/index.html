@@ -1,0 +1,192 @@
+<extend name="Public:base" />
+<block name="css">
+<link href="__HOME_CSS__/page.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="__HOME_JS__/jquery.layermodel.js"></script>
+<script type="text/javascript">
+$(function(){
+ $("#demoBtn1").click(function(){
+      $('#demo1').layerModel();
+    });
+$("#demoBtn2").click(function(){
+      $('#demo2').layerModel();
+    });	
+	
+  });
+</script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__HOME_JS__/html5shiv.min.js"></script>
+<script type="text/javascript" src="__HOME_JS__/respond.min.js"></script>
+<![endif]-->
+    <style type="text/css">
+        /*2016-10-10*/
+        .gpc-logo h1{
+            margin:0
+        }
+        		.navbar{
+			min-height: 0 ;
+		}
+		.nav-container{
+			height: auto ;
+		}
+        .gpc-nav-menu-ul{
+            width: 100%;
+            float: none;
+            margin: 0;
+            margin-left: 140px;
+        }
+        .gpc-nav-menu-ul-ul{
+            width: 74%;
+        }
+        .pro-menu{
+            padding-top: 0;
+            /*border-top: 1px solid #eaeaea;*/
+        }
+    </style>
+</block>
+<block name="main">
+  <section class="pro-menu"  style="background:#fbfbfb;">
+    <div class="three-video-inf">
+       <div class="container-fluid">
+           <div class='row'>
+               <div class="col-md-12 col-sm-12">
+                        <input type="hidden" name="brand_id" value="{$brand_id}">
+                        <input type="hidden" name="industry_id" value="{$industry_id}">
+                        <input type="hidden" name="budget" value="{$budget}">
+                        <input type="hidden" name="times" value="{$times}">
+                        <ul class="gpc-nav-menu-ul">
+                            <li><img src="__HOME_PICTURE__/x_menu1.png" /></li>
+                            <li class="second"><a href="javascript:;" onclick="setBrandid()"><strong>品牌视频</strong></a></li>
+                            <ul class="gpc-nav-menu-ul-ul">
+                                <li><a href="javascript:;" onclick="setBrandid()" <empty name="brand_id">style="color:#F00;"</empty>>全部品牌</a></li>
+                                <volist name="brand" id="vo">
+                                <li><a href="javascript:;" onclick="setBrandid({$vo.id})" <if condition="$brand_id eq $vo['id']">style="color:#F00;"</if>><strong style="font-weight: normal;">{$vo.title}</strong></a></li> 
+                                </volist>                               
+                                <div class="cl"></div>
+                            </ul>
+                        </ul>
+                        <ul class="gpc-nav-menu-ul">
+                            <li><img src="__HOME_PICTURE__/x_menu2.png" /></li>
+                            <li class="second"><a href="javascript:;" onclick="setIndustryid()"><strong>产品视频</strong></a></li>
+                            <ul class="gpc-nav-menu-ul-ul hs-cpsp">
+                                <li><a href="javascript:;" onclick="setIndustryid()" <empty name="industry_id">style="color:#F00;"</empty>>全部产品</a></li>
+                                <volist name='industry' id="vo">
+                                <li><a href="javascript:;" onclick="setIndustryid({$vo.id})" <if condition="$industry_id eq $vo['id']">style="color:#F00;"</if>><strong style="font-weight: normal;">{$vo.title}</strong></a></li>
+                                </volist>
+                                <div class="cl"></div>
+                            </ul>
+                        </ul>
+                        <ul class="gpc-nav-menu-ul">
+                            <li><img src="__HOME_PICTURE__/x_menu4.png" /></li>
+                            <li class="second"><a href="/category.html"><strong>合作预算</strong></a></li>
+                            <ul class="gpc-nav-menu-ul-ul">
+                                <li><a href="javascript:;" onclick="setBudget()" <empty name="budget">style="color:#F00;"</empty>>全部预算</a></li>
+                                <li><a href="javascript:;" onclick="setBudget(1)" <if condition="$budget eq 1">style="color:#F00;"</if>><strong style="font-weight: normal;">5000内</strong></a></li>
+                                <li><a href="javascript:;" onclick="setBudget(2)" <if condition="$budget eq 2">style="color:#F00;"</if>><strong style="font-weight: normal;">5000-10000</strong></a></li>
+                                <li><a href="javascript:;" onclick="setBudget(3)" <if condition="$budget eq 3">style="color:#F00;"</if>><strong style="font-weight: normal;">1-3万</strong></a></li>
+                                <li><a href="javascript:;" onclick="setBudget(4)" <if condition="$budget eq 4">style="color:#F00;"</if>><strong style="font-weight: normal;">3-5万</strong></a></li>
+                                <li><a href="javascript:;" onclick="setBudget(5)" <if condition="$budget eq 5">style="color:#F00;"</if>><strong style="font-weight: normal;">5-10万</strong></a></li>
+                                <li><a href="javascript:;" onclick="setBudget(6)" <if condition="$budget eq 6">style="color:#F00;"</if>><strong style="font-weight: normal;">10万以上</strong></a></li> 
+                                <div class="cl"></div>
+                            </ul>
+                        </ul>
+                        <ul class="gpc-nav-menu-ul">
+                            <li style="padding-left: 3px;"><img src="__HOME_PICTURE__/x_menu5.png" /></li>
+                            <li class="second"><a href="javascript:;" onclick="setTimes()"><strong>成片时长</strong></a></li>
+                            <ul class="gpc-nav-menu-ul-ul no-under-line">
+                                <li><a href="javascript:;" onclick="setTimes()" <empty name="times">style="color:#F00;"</empty>>全部时长</a></li>
+                                <li><a href="javascript:;" onclick="setTimes(1)" <if condition="$times eq 1">style="color:#F00;"</if>><strong style="font-weight: normal;">1min内</strong></a></li>
+                                <li><a href="javascript:;" onclick="setTimes(2)" <if condition="$times eq 2">style="color:#F00;"</if>><strong style="font-weight: normal;">1-3min</strong></a></li>
+                                <li><a href="javascript:;" onclick="setTimes(3)" <if condition="$times eq 3">style="color:#F00;"</if>><strong style="font-weight: normal;">3-5min</strong></a></li>
+                                <li><a href="javascript:;" onclick="setTimes(4)" <if condition="$times eq 4">style="color:#F00;"</if>><strong style="font-weight: normal;">5min以上</strong></a></li>
+                                <div class="cl"></div>
+                            </ul>
+                            
+                        </ul>
+               </div>
+           </div>
+     </div>
+     </div>
+  </div>
+</section>
+</div>
+
+  
+
+<section class="name1_video margin-top-bottom" style="background:#fbfbfb;">
+	<div class="three-video-inf">
+        <div class="container-fluid no-padding">
+            <div class="col-md-12 col-sm-12 no-padding g1">
+			    <volist name="list" id="vo">
+			   	<a href="/video/{$vo.id}" target="_blank">                 
+			   	<!--1-->
+                <div class="col-md-4 col-sm-12 col-xs-12 no-padding-inner">
+                    <div class="pro-video-wrap-box">
+                        <div class="pro-video-wrap">
+                               <div class="pro-video-wrap_img video_con" data-id="472">
+                                  <img src="{$vo.thumb}" alt="{$vo.title}">
+                                  <div class="video_overlay"></div>
+                                  <div class="video_play"><img src="__HOME_PICTURE__/play.png"></div>
+                               </div>
+                                <div class="pro-video-wrap-title">
+                                    <span class="pro-video-wrap-title-lf">{$vo.title}</span>
+                                    <span class="pro-video-wrap-title-rl">{$vo.times}</span>
+                                </div>
+                                  <!--n-->
+                                <div class="pro-video-wrap-title-b">
+                                    <span class="pro-video-wrap-title-1">发布时间：{$vo.create_time}</span>
+                                    <div class="pro-video-wrap-title-br">
+                                        <img src="__HOME_PICTURE__/read.png">
+                                        <span class="pro-video-wrap-title-2 video_num">{$vo.playbacknum}</span>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>   
+                </div>
+                </volist>
+				<!--/1-->                
+                </a>                                  
+            </div>
+        </div>
+	</div>	
+</section>
+<div class="scott">
+{$page}
+</div>
+</block>
+<block name="footjs">
+<script type="text/javascript">
+ $('.pro-video-wrap-title  span').each(function() {
+        var words = $(this).text().length;
+        if(words > 20){
+            $(this).text($(this).text().slice(0,20)+"...");
+        }
+    });
+ //取消事件绑定
+ $('.dropdown-hover').unbind('mouseenter').unbind('mouseleave');
+ function setBrandid(id=0){
+ 	 $("input[name='brand_id']").val(id);
+ 	 local();
+ }
+  function setIndustryid(id=0){
+ 	 $("input[name='industry_id']").val(id);
+ 	 local();
+ }
+  function setBudget(id=0){
+ 	 $("input[name='budget']").val(id);
+ 	 local();
+ }
+  function setTimes(id=0){
+ 	 $("input[name='times']").val(id);
+ 	 local();
+ }
+  function local(){
+ 	 var brand_id=$("input[name='brand_id']").val();
+ 	 var industry_id=$("input[name='industry_id']").val();
+ 	 var budget=$("input[name='budget']").val();
+ 	 var times=$("input[name='times']").val();
+ 	 var url='/category/';
+ 	 url=url+brand_id+'-'+industry_id+'-'+budget+'-'+times+'-'+'1';
+ 	 window.location.href=url;
+ }
+</script>
+</block>

@@ -1,0 +1,67 @@
+<extend name="Public:base" />
+<block name="css">
+<!-- <link href="__HOME_CSS__/style.css" type="text/css" rel="stylesheet"> -->
+<link href="__HOME_CSS__/css.css" type="text/css" rel="stylesheet">
+<link href="__HOME_CSS__/e8a82d6fa92142409c9f2a7e928d3254.css" type="text/css" rel="stylesheet">
+</block>
+<block name="main">
+ <div class="td-video-inf">
+    <div class="container-fluid ">
+        <div class="row">
+        		
+            <div class="col-xs-12 col-sm-11 col-md-11 detial-video-con" style="">
+                <div class="row detial-video-top">
+                   <div class="col-md-4 detial-video-topl" style="width:100%;">
+                   <h3>当前位置：<a href="/anli">经典案例</a>>{$info.title}</h2>
+                     <h2>{$info.title}</h2>
+                     
+                     <div>
+                     	<Div style="float:left; padding-top:8px;">
+                            {$info.create_time} &nbsp;&nbsp;&nbsp; 
+                        </Div>
+                        <div style="float:left;">
+                        
+                        <div class="bdsharebuttonbox detial-bom-share" style="display:inline-block; margin-top: 0px; padding-left:400px;">
+                          <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>&nbsp;&nbsp;
+                          <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>&nbsp;&nbsp;
+                          <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                        </div>                        
+                        
+                        
+                        </div>
+                     </div>
+                     
+                   </div>
+                   
+                   
+                   
+                   
+                </div>
+
+                
+                
+
+                <div class="row">
+                  <div class="col-xs-12 col-sm-11 col-md-11" style="width:100%;">
+                    <div class="detial-bom">
+                       <div class="detial-bom-text" style="padding-top:10px;line-height:1.75em;">
+                       <?php echo htmlspecialchars_decode($info['content'])?>
+                                                
+                        </div>
+                        
+<!--                         <div class="detial-bom-box1">
+                           <img src="__HOME_PICTURE__/ewm.png">
+                           <div style="color: #ff2444">跟屁虫 影视链接一切</div>
+                         </div> -->
+                     </div>
+                   </div>
+                  
+                  
+               </div>
+
+            </div>
+         
+        </div>
+    </div>
+ </div>
+</block>
